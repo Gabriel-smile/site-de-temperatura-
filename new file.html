@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor de Temperatura</title>
+  <style>
+    .container {
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .resultado {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Conversor de Temperatura</h1>
+    <input type="number" id="temperatura" placeholder="Insira uma temperatura">
+    <button id="converter-celsius">Converter para Celsius</button>
+    <button id="converter-fahrenheit">Converter para Fahrenheit</button>
+    <div class="resultado"></div>
+  </div>
+
+  <script>
+    const temperatura = document.getElementById("temperatura");
+    const converterCelsius = document.getElementById("converter-celsius");
+    const converterFahrenheit = document.getElementById("converter-fahrenheit");
+    const resultado = document.querySelector(".resultado");
+
+    converterCelsius.addEventListener("click", () => {
+      const valor = Number(temperatura.value);
+      const resultadoCelsius = (valor - 32) * 5 / 9;
+      resultado.innerHTML = `${valor}°F ≈ ${resultadoCelsius}°C`;
+    });
+
+    converterFahrenheit.addEventListener("click", () => {
+      const valor = Number(temperatura.value);
+      const resultadoFahrenheit = (valor * 9 / 5) + 32;
+      resultado.innerHTML = `${valor}°C ≈ ${resultadoFahrenheit}°F`;
+    });
+  </script>
+</body>
+</html>
